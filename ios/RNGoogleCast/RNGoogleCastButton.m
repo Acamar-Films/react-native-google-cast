@@ -9,7 +9,14 @@
 
 -(void)layoutSubviews {
   _castButton = [[GCKUICastButton alloc] initWithFrame:self.bounds];
-  _castButton.tintColor = _tintColor;
+  _castButton.tintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0];
+    
+  UIImage *activeIcon = [UIImage imageNamed:@"cast-active"];
+  UIImage *inactiveIcon = [UIImage imageNamed:@"cast-inactive"];
+  NSArray *animatedIcons = @[[UIImage imageNamed:@"cast-connecting0"], [UIImage imageNamed:@"cast-connecting1"], [UIImage imageNamed:@"cast-connecting2"]];
+  
+  [_castButton setInactiveIcon:inactiveIcon activeIcon:activeIcon animationIcons:animatedIcons];
+    
   [self addSubview:_castButton];
 }
 
